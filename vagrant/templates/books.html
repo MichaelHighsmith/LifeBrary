@@ -1,0 +1,43 @@
+<html>
+
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+<div class = 'pane'>
+	<div class = 'header'>
+		<h1> Books in {{genre.name}}</h1>
+	</div>
+
+
+
+<a href = "{{url_for('newBook', genre_id = genre.id)}}">Create New Book</a>
+</br>
+</br>
+
+	{% for book in books %}
+	<div class = 'bookDetails'>
+	<p>
+		{{book.name}}
+		</br>
+		{{book.author}}
+		</br>
+		{{book.description}}
+		</br>
+		<a href="{{url_for('editBook', genre_id = book.genre_id, book_id=book.id )}}"> Edit</a>
+		</br>
+		<a href="{{url_for('deleteBook', genre_id = book.genre_id, book_id = book.id)}}">Delete</a>
+		</br>
+	</p>
+	</div>
+
+</br>
+	{% endfor %}
+
+	</div>
+
+
+</body>
+</html>

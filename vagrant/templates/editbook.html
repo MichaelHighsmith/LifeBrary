@@ -1,0 +1,24 @@
+<html>
+<body>
+
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+
+
+<h1>Edit {{book.name}}</h1>
+
+<form action="{{ url_for('editBook', genre_id = genre_id, book_id = book_id)}}" method = 'post'>
+
+<p>Name:</p>
+	<input type = 'text' size='30' name='name'>
+
+<input type='submit' value='Edit'>
+
+<a href = "{{ url_for('booksInGenre', genre_id = genre_id)}}"> Cancel </a>
+
+</form>
+
+
+</body>
+</html>
